@@ -51,20 +51,6 @@ public class AuthController {
         return ResponseEntity.ok(new com.bookstore.app.auth.JwtAuthenticationResponse(token));
     }
 
-    @GetMapping(value = "${jwt.route.authentication.refresh}")
-    public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
-        String authToken = request.getHeader(tokenHeader);
-        final String token = authToken.substring(7);
-        String email = jwtTokenUtil.getEmailFromToken(token);
-        User user = customUserService.loadUserByUsername(email);
-        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate())) {
-            String refreshedToken = jwtTokenUtil.refreshToken(token);
-            return ResponseEntity.ok(new com.bookstore.app.auth.JwtAuthenticationResponse(refreshedToken));
-        } else {
-            return ResponseEntity.badRequest().body(null);
-        }
-    }
-
     private void authenticateUser(@NotNull com.bookstore.app.auth.AccountCredentials accountCredentials) throws AuthenticationException{
         String email = accountCredentials.getEmail(), password = accountCredentials.getPassword();
         logger.info("Authenticating with the following email and password: '{}' '{}'", email, password);

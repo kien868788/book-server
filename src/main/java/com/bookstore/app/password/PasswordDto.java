@@ -1,4 +1,4 @@
-package com.bookstore.app.passwordRestToken;
+package com.bookstore.app.password;
 
 public class PasswordDto {
     private String newPassword;

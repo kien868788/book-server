@@ -1,7 +1,5 @@
 package com.bookstore.app.user;
 
-import org.hibernate.validator.constraints.Email;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -16,7 +14,6 @@ public class UserDto {
     private String lastname;
 
     @NotNull
-    @Email(message = "Email is not valid.")
     private String email;
 
     @NotNull

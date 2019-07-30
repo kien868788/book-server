@@ -1,6 +1,6 @@
 package com.bookstore.app.user;
 
-import com.bookstore.app.passwordRestToken.PasswordDto;
+import com.bookstore.app.password.PasswordDto;
 import com.bookstore.app.role.RoleType;
 import com.bookstore.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;

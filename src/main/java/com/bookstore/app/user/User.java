@@ -25,13 +25,14 @@ import java.util.stream.Collectors;
 @Where(clause = "deleted = false")
 @JsonRootName(value = "payload")
 public class User implements UserDetails{
+
     @Transient
     private LocalDateTime now = LocalDateTime.now();
     private Long id;
     private String firstname;
     private String lastname;
     private String password;
-    private String email;
+    private String username;
     private List<UserRole> userRoles = new ArrayList<>();
     private Date lastPasswordResetDate;
     private LocalDateTime lastLogin = now;
@@ -40,18 +41,18 @@ public class User implements UserDetails{
     private boolean enabled = true;
     private boolean deleted = false;
 
-    public User(String firstname, String lastname, String password, String email) {
+    public User(String firstname, String lastname, String password, String username) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.password = password;
-        this.email = email;
+        this.username = username;
     }
 
-    public User(String firstname, String lastname, String password, String email, List<UserRole> userRoles) {
+    public User(String firstname, String lastname, String password, String username, List<UserRole> userRoles) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.password = password;
-        this.email = email;
+        this.username = username;
         this.userRoles = userRoles;
     }
 
@@ -103,12 +104,13 @@ public class User implements UserDetails{
     }
 
     @NotNull
-    @Column(name = "email", unique = true)
+    @Column(name = "username", unique = true)
     public String getEmail() {
-        return email;
+        return username;
     }
-    public void setEmail(String email) {
-        this.email = email;
+
+    public void setEmail(String username) {
+        this.username = username;
     }
 
 
@@ -198,7 +200,7 @@ public class User implements UserDetails{
     @JsonIgnore
     @Transient
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override

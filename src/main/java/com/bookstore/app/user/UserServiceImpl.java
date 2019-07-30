@@ -1,17 +1,17 @@
 package com.bookstore.app.user;
 
-        import com.bookstore.app.role.Role;
-        import com.bookstore.app.role.RoleRepository;
-        import com.bookstore.app.role.RoleType;
-        import com.bookstore.app.passwordRestToken.PasswordDto;
-        import com.bookstore.app.userRole.UserRole;
-        import com.bookstore.exceptions.RoleDoesNotExistException;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.security.crypto.password.PasswordEncoder;
-        import org.springframework.stereotype.Service;
+import com.bookstore.app.password.PasswordDto;
+import com.bookstore.app.role.Role;
+import com.bookstore.app.role.RoleRepository;
+import com.bookstore.app.role.RoleType;
+import com.bookstore.app.userRole.UserRole;
+import com.bookstore.exceptions.RoleDoesNotExistException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
-        import java.util.Date;
-        import java.util.Optional;
+import java.util.Date;
+import java.util.Optional;
 
 
 @Service

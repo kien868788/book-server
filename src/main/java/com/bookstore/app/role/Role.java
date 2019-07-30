@@ -1,17 +1,16 @@
 package com.bookstore.app.role;
 
+import com.bookstore.app.userRole.UserRole;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.bookstore.app.userRole.UserRole;
-import org.hibernate.search.annotations.DocumentId;
 
 @Entity
 @Table(name="role")
@@ -40,7 +39,6 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @DocumentId
     @Column(name="role_id")
     public Long getId() {
         return id;
